@@ -53,6 +53,13 @@ def map_reduce(text):
 
     return dict(reduced_values)
 
+# Функція для виводу результатів у термінал
+def print_word_frequencies(word_counts, top_n=10):
+    sorted_word_counts = sorted(word_counts.items(), key=lambda item: item[1], reverse=True)[:top_n]
+    print(f"Топ {top_n} найбільш частих слів:")
+    for word, count in sorted_word_counts:
+        print(f"{word}: {count}")
+
 # Функція для візуалізації топ 10 слів
 def visualize_top_words(word_counts, top_n=10):
     # Сортуємо слова за частотою
@@ -69,12 +76,15 @@ def visualize_top_words(word_counts, top_n=10):
 
 if __name__ == '__main__':
     # Вкажіть URL тексту
-    url = "https://www.gutenberg.org/cache/epub/12577/pg12577.txt"
+    url = "https://gutenberg.net.au/ebooks01/0100021.txt"
     text = get_text(url)
 
     if text:
         # Виконуємо MapReduce для підрахунку частот слів
         word_counts = map_reduce(text)
+
+        # Виводимо результат у термінал
+        print_word_frequencies(word_counts, top_n=10)
 
         # Візуалізуємо топ 10 слів
         visualize_top_words(word_counts, top_n=10)

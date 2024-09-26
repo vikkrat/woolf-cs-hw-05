@@ -52,6 +52,8 @@ Release date: June 1, 2004 [eBook #12577]
 
 Language: English
 
+![alt text](02-5.jpg)
+
 ![alt text](Figure_1.png)
 
 
